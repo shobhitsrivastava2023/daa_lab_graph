@@ -23,6 +23,7 @@ export default function Home() {
     { "time": 76300, "arrayLength": 970 }
   ]
 
+
   const quicksort = [
     { "time": 300, "arrayLength": 6 },
     { "time": 8100, "arrayLength": 166 },
@@ -60,13 +61,104 @@ export default function Home() {
     { "time": 139400, "arrayLength": 976 }
   ];
 
+  const bfsGraphData = [
+    {"Tooktime": 95700, "Generatedvertices": 10},
+
+    {"Tooktime": 21200, "Generatedvertices": 24},
+    
+    {"Tooktime": 9700, "Generatedvertices": 11},
+    
+    {"Tooktime": 24100, "Generatedvertices": 28},
+    
+    {"Tooktime": 22200, "Generatedvertices": 29},
+    
+    {"Tooktime": 24900, "Generatedvertices": 26},
+    
+    {"Tooktime": 24000, "Generatedvertices": 37},
+    
+    {"Tooktime": 12200, "Generatedvertices": 21},
+    
+    {"Tooktime": 12400, "Generatedvertices": 19},
+    
+    {"Tooktime": 7000, "Generatedvertices": 7},
+    
+    {"Tooktime": 4000, "Generatedvertices": 3},
+    
+    {"Tooktime": 27600, "Generatedvertices": 48},
+    
+    {"Tooktime": 23000, "Generatedvertices": 29},
+    
+    {"Tooktime": 1900, "Generatedvertices": 2},
+    
+    {"Tooktime": 2900, "Generatedvertices": 4},
+    
+    
+  ]
+
+
+  const selectionSortData = [
+    {"Tooktime": 2068000, "GeneratedLength": 631},
+{"Tooktime": 184100, "GeneratedLength": 320},
+{"Tooktime": 1141100, "GeneratedLength": 972},
+{"Tooktime": 678900, "GeneratedLength": 766},
+{"Tooktime": 499900, "GeneratedLength": 680},
+{"Tooktime": 1056700, "GeneratedLength": 997},
+{"Tooktime": 25000, "GeneratedLength": 142},
+{"Tooktime": 45800, "GeneratedLength": 196},
+{"Tooktime": 873900, "GeneratedLength": 905},
+{"Tooktime": 52500, "GeneratedLength": 213},
+{"Tooktime": 293300, "GeneratedLength": 519},
+{"Tooktime": 5500, "GeneratedLength": 63},
+{"Tooktime": 20100, "GeneratedLength": 127},
+{"Tooktime": 365900, "GeneratedLength": 581},
+{"Tooktime": 2400, "GeneratedLength": 51},
+    
+  ]
+
+  const insertionsortDatsa = [
+    {"Tooktime": 7689600, "GeneratedLength": 670},
+{"Tooktime": 2800, "GeneratedLength": 29},
+{"Tooktime": 374300, "GeneratedLength": 826},
+{"Tooktime": 32300, "GeneratedLength": 242},
+{"Tooktime": 292000, "GeneratedLength": 748},
+{"Tooktime": 23500, "GeneratedLength": 207},
+{"Tooktime": 151500, "GeneratedLength": 538},
+{"Tooktime": 2900, "GeneratedLength": 68},
+{"Tooktime": 66300, "GeneratedLength": 352},
+{"Tooktime": 97400, "GeneratedLength": 420},
+{"Tooktime": 125700, "GeneratedLength": 496},
+{"Tooktime": 13600, "GeneratedLength": 152},
+{"Tooktime": 313600, "GeneratedLength": 770},
+{"Tooktime": 41000, "GeneratedLength": 279},
+{"Tooktime": 379600, "GeneratedLength": 861},
+  ]
+
+  const bubbleSortData = [
+    {"Tooktime": 3536100, "GeneratedLength": 726},
+    {"Tooktime": 238300, "GeneratedLength": 343},
+    {"Tooktime": 1180100, "GeneratedLength": 978},
+    {"Tooktime": 59800, "GeneratedLength": 206},
+    {"Tooktime": 883300, "GeneratedLength": 844},
+    {"Tooktime": 1036400, "GeneratedLength": 917},
+    {"Tooktime": 108800, "GeneratedLength": 289},
+    {"Tooktime": 22100, "GeneratedLength": 119},
+    {"Tooktime": 220500, "GeneratedLength": 411},
+    {"Tooktime": 894100, "GeneratedLength": 836},
+    {"Tooktime": 117800, "GeneratedLength": 299},
+    {"Tooktime": 384500, "GeneratedLength": 546},
+    {"Tooktime": 905600, "GeneratedLength": 825},
+    {"Tooktime": 51300, "GeneratedLength": 188},
+    {"Tooktime": 255000, "GeneratedLength": 443},
+  ]
+  const SortedData = selectionSortData.sort((a, b) => a.GeneratedLength- b.GeneratedLength)
+
   return (
     <div className="container mx-auto p-4 bg-white">
-      <h1 className="text-2xl font-bold mb-4  text-black">Randomized Sort Performance Visualization</h1>
+      <h1 className="text-2xl font-bold mb-4  text-black">Selection Sort Performance Visualization</h1>
       <div className="w-full h-[500px]">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
-            data={randomizedData}
+            data={SortedData}
             margin={{
               top: 20,
               right: 20,
@@ -75,10 +167,10 @@ export default function Home() {
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis type="number" dataKey="arrayLength" name="Array Length" unit=" elements" />
-            <YAxis type="number" dataKey="time" name="Time" unit=" ns" />
+            <XAxis type="number" dataKey="GeneratedLength" name="Array Length" unit=" elements" />
+            <YAxis type="number" dataKey="Tooktime" name="Time" unit=" ns" />
             <Tooltip />
-            <Line type="monotone" dataKey="time" stroke="#8884d8" activeDot={{ r: 8 }} />
+            <Line type="monotone" dataKey="Tooktime" stroke="#8884d8" activeDot={{ r: 8 }} />
           </LineChart>
         </ResponsiveContainer>
       </div>
